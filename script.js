@@ -149,17 +149,17 @@ sortztoa.addEventListener('click',()=>{
     update(upstudent);
 })
 let sortbymarks=document.querySelector('#bymarks');
-let x=0;
+// let x=0;
 sortbymarks.addEventListener('click',()=>{
     tableBody.innerHTML='';
-    let method=(a, b) => b.marks-a.marks;
-    if(x==1){
-        method=(a, b) => a.marks-b.marks;
-        x=0;
-    }else{
-        x=1;
-    }
-    let upstudent=students.sort(method);
+    // let method=(a, b) => b.marks-a.marks;
+    // if(x==1){
+    //     method=(a, b) => a.marks-b.marks;
+    //     x=0;
+    // }else{
+    //     x=1;
+    // }
+    let upstudent=students.sort((a, b) => a.marks-b.marks);
     update(upstudent);
 })
 let sortbypassing=document.querySelector('#bypassing');
@@ -179,27 +179,27 @@ sortbypassing.addEventListener('click',()=>{
 let sortbyclass=document.querySelector('#byclass');
 sortbyclass.addEventListener('click',()=>{
     tableBody.innerHTML='';
-    let method=(a, b) => b.class-a.class;
-    if(x==1){
-        method=(a, b) => a.class-b.class;
-        x=0;
-    }else{
-        x=1;
-    };
-    let upstudent=students.sort(method);
+    // let method=(a, b) => b.class-a.class;
+    // if(x==1){
+    //     method=(a, b) => a.class-b.class;
+    //     x=0;
+    // }else{
+    //     x=1;
+    // };
+    let upstudent=students.sort((a,b)=>a.class-b.class);
     update(upstudent);
 })
 let sortbygender=document.querySelector('#bygender');
 sortbygender.addEventListener('click',()=>{
     tableBody.innerHTML='';
-    let method=(a, b) => a.gender.localeCompare(b.gender);
-    if(x==1){
-        method=(a, b) => b.gender.localeCompare(a.gender);
-        x=0;
-    }else{
-        x=1;
-    };
-    let upstudent=students.sort(method);
+    // let method=(a, b) => a.gender.localeCompare(b.gender);
+    // if(x==1){
+    //     method=(a, b) => b.gender.localeCompare(a.gender);
+    //     x=0;
+    // }else{
+    //     x=1;
+    // };
+    let upstudent=students.sort((a, b) => b.gender.localeCompare(a.gender));
     update(upstudent);
 })
 let search = document.querySelector('#searchbtn');

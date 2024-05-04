@@ -117,25 +117,6 @@ students.forEach(student => {
 });
 }
 update(students);
-// const sortMethods = {
-//     atoz: (a, b) => a.first_name.localeCompare(b.first_name),
-//     ztoa: (a, b) => b.first_name.localeCompare(a.first_name),
-//     bymarks: (a, b) => a.marks - b.marks,
-//     bypassing: (a, b) => a.passing - b.passing,
-//     byclass: (a, b) => a.class - b.class,
-//     bygender: (a, b) => a.gender.localeCompare(b.gender)
-// };
-
-// const buttons = document.querySelectorAll('.sort-button');
-// buttons.forEach(button => {
-//     button.addEventListener('click', () => {
-//         console.log('button clicked')
-//         tableBody.innerHTML = '';
-//         const sortMethod = sortMethods[button.id];
-//         const upstudent = students.sort(sortMethod);
-//         update(upstudent);
-//     });
-// });
 let sortatoz=document.querySelector('#atoz');
 sortatoz.addEventListener('click',()=>{
     tableBody.innerHTML='';
@@ -152,55 +133,24 @@ let sortbymarks=document.querySelector('#bymarks');
 // let x=0;
 sortbymarks.addEventListener('click',()=>{
     tableBody.innerHTML='';
-    // let method=(a, b) => b.marks-a.marks;
-    // if(x==1){
-    //     method=(a, b) => a.marks-b.marks;
-    //     x=0;
-    // }else{
-    //     x=1;
-    // }
     let upstudent=students.sort((a, b) => a.marks-b.marks);
     update(upstudent);
 })
 let sortbypassing=document.querySelector('#bypassing');
 sortbypassing.addEventListener('click',()=>{
     tableBody.innerHTML='';
-    // let method=(a, b) => b.passing-a.passing;
-    // if(x==1){
-    //     method=(a, b) => a.passing-b.passing;
-    //     x=0;
-    // }else{
-    //     x=1;
-    // };
-    // let upstudent=students.sort(method);
     let upstudent=students.filter(student=>student.passing === true)
     update(upstudent);
 })
 let sortbyclass=document.querySelector('#byclass');
 sortbyclass.addEventListener('click',()=>{
     tableBody.innerHTML='';
-    // let method=(a, b) => b.class-a.class;
-    // if(x==1){
-    //     method=(a, b) => a.class-b.class;
-    //     x=0;
-    // }else{
-    //     x=1;
-    // };
     let upstudent=students.sort((a,b)=>a.class-b.class);
     update(upstudent);
 })
 let sortbygender=document.querySelector('#bygender');
 sortbygender.addEventListener('click',()=>{
     tableBody.innerHTML='';
-    // let method=(a, b) => a.gender.localeCompare(b.gender);
-    // if(x==1){
-    //     method=(a, b) => b.gender.localeCompare(a.gender);
-    //     x=0;
-    // }else{
-    //     x=1;
-    // };
-    // let upstudent=students.sort((a, b) => b.gender.localeCompare(a.gender));
-    // update(upstudent);
         let filteredStudents = students.filter(student => student.gender === 'Male' || student.gender === 'Female');
         let sortedStudents = filteredStudents.sort((a, b) => b.gender.localeCompare(a.gender));
         update(sortedStudents); 

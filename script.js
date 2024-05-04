@@ -153,8 +153,26 @@ sortbygender.addEventListener('click',()=>{
     let upstudent=students.sort((a, b) => a.gender.localeCompare(b.gender));
     update(upstudent);
 })
-let search=document.querySelector('#search');
-search.addEventListener('click',()=>{
-    let searchin=document.querySelector('input').value;
-    
-})
+let search = document.querySelector('#searchbtn');
+search.addEventListener('click', () => {
+    let searchInput = document.querySelector('input').value.toLowerCase();
+    let searchResult = students.find(student => student.first_name.toLowerCase() === searchInput);
+
+    if (searchResult) {
+        tableBody.innerHTML = '';
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${searchResult.id}</td>
+            <td><img src='${searchResult.img_src}'>${searchResult.first_name} ${searchResult.last_name}</td>
+            <td>${searchResult.gender}</td>
+            <td>${searchResult.class}</td>
+            <td>${searchResult.marks}</td>
+            <td>${searchResult.passing ? 'Yes' : 'No'}</td>
+            <td>${searchResult.email}</td>
+        `;
+        tableBody.appendChild(row);
+    } else {
+        console.log('Student not found.');
+    }
+});
+

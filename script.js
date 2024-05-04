@@ -110,7 +110,7 @@ students.forEach(student => {
         <td>${student.gender}</td>
         <td>${student.class}</td>
         <td>${student.marks}</td>
-        <td>${student.passing ? 'Yes' : 'No'}</td>
+        <td>${student.passing ? 'Passed' : 'Failed'}</td>
         <td>${student.email}</td>
     `;
     tableBody.appendChild(row);
@@ -165,14 +165,15 @@ sortbymarks.addEventListener('click',()=>{
 let sortbypassing=document.querySelector('#bypassing');
 sortbypassing.addEventListener('click',()=>{
     tableBody.innerHTML='';
-    let method=(a, b) => b.passing-a.passing;
-    if(x==1){
-        method=(a, b) => a.passing-b.passing;
-        x=0;
-    }else{
-        x=1;
-    };
-    let upstudent=students.sort(method);
+    // let method=(a, b) => b.passing-a.passing;
+    // if(x==1){
+    //     method=(a, b) => a.passing-b.passing;
+    //     x=0;
+    // }else{
+    //     x=1;
+    // };
+    // let upstudent=students.sort(method);
+    let upstudent=students.filter(student=>student.passing === true)
     update(upstudent);
 })
 let sortbyclass=document.querySelector('#byclass');
@@ -215,7 +216,7 @@ search.addEventListener('click', () => {
             <td>${searchResult.gender}</td>
             <td>${searchResult.class}</td>
             <td>${searchResult.marks}</td>
-            <td>${searchResult.passing ? 'Yes' : 'No'}</td>
+            <td>${searchResult.passing ? 'Passed' : 'Failed'}</td>
             <td>${searchResult.email}</td>
         `;
         tableBody.appendChild(row);

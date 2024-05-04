@@ -14,12 +14,12 @@
 }
 .search{
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     margin:20px;
 }
 .sort{
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin:20px;
 }
 button{
@@ -52,4 +52,9 @@ th {
 .red{
     color:red;
     text-align: center;
+}
+tbody>tr>td:nth-child(2){
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }

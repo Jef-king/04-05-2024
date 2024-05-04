@@ -1,4 +1,4 @@
-let users=[{"id":1,"first_name":"Chadwick","last_name":"Ayre","email":"cayre0@cam.ac.uk","gender":"Male","img_src":"https://robohash.org/corporisquiaperiam.png?size=50x50&set=set1","class":11,"marks":18,"passing":false,"city":"Moorreesburg"},
+let students=[{"id":1,"first_name":"Chadwick","last_name":"Ayre","email":"cayre0@cam.ac.uk","gender":"Male","img_src":"https://robohash.org/corporisquiaperiam.png?size=50x50&set=set1","class":11,"marks":18,"passing":false,"city":"Moorreesburg"},
 {"id":2,"first_name":"Abrahan","last_name":"Seabrocke","email":"aseabrocke1@ocn.ne.jp","gender":"Male","img_src":"https://robohash.org/autiuredistinctio.png?size=50x50&set=set1","class":3,"marks":27,"passing":true,"city":"Kampong Thom"},
 {"id":3,"first_name":"Nathanael","last_name":"Laye","email":"nlaye2@typepad.com","gender":"Male","img_src":"https://robohash.org/dolorumsedut.png?size=50x50&set=set1","class":10,"marks":89,"passing":false,"city":"Niquinohomo"},
 {"id":4,"first_name":"Luigi","last_name":"Balcers","email":"lbalcers3@reverbnation.com","gender":"Agender","img_src":"https://robohash.org/eumaliquamest.png?size=50x50&set=set1","class":8,"marks":30,"passing":false,"city":"Nashtā Rūd"},
@@ -98,3 +98,20 @@ let users=[{"id":1,"first_name":"Chadwick","last_name":"Ayre","email":"cayre0@ca
 {"id":98,"first_name":"Drugi","last_name":"Bordone","email":"dbordone2p@slate.com","gender":"Male","img_src":"https://robohash.org/autminimanulla.png?size=50x50&set=set1","class":4,"marks":63,"passing":true,"city":"Senekal"},
 {"id":99,"first_name":"Gordon","last_name":"Vieyra","email":"gvieyra2q@geocities.com","gender":"Male","img_src":"https://robohash.org/nullaeumaut.png?size=50x50&set=set1","class":11,"marks":59,"passing":false,"city":"Nīkshahr"},
 {"id":100,"first_name":"Zoe","last_name":"Moorhead","email":"zmoorhead2r@sfgate.com","gender":"Female","img_src":"https://robohash.org/fugiatcorporisdeleniti.png?size=50x50&set=set1","class":8,"marks":43,"passing":true,"city":"Makin Village"}]
+
+
+const tableBody = document.querySelector('tbody');
+
+students.forEach(student => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+        <td>${student.id}</td>
+        <td>${student.first_name} ${student.last_name}</td>
+        <td>${student.gender}</td>
+        <td>${student.class}</td>
+        <td>${student.marks}</td>
+        <td>${student.passing ? 'Yes' : 'No'}</td>
+        <td>${student.email}</td>
+    `;
+    tableBody.appendChild(row);
+});

@@ -199,8 +199,11 @@ sortbygender.addEventListener('click',()=>{
     // }else{
     //     x=1;
     // };
-    let upstudent=students.sort((a, b) => b.gender.localeCompare(a.gender));
-    update(upstudent);
+    // let upstudent=students.sort((a, b) => b.gender.localeCompare(a.gender));
+    // update(upstudent);
+        let filteredStudents = students.filter(student => student.gender === 'Male' || student.gender === 'Female');
+        let sortedStudents = filteredStudents.sort((a, b) => b.gender.localeCompare(a.gender));
+        update(sortedStudents); 
 })
 let search = document.querySelector('#searchbtn');
 search.addEventListener('click', () => {

@@ -7,3 +7,22 @@
     background-color: black;
     padding:10px;
 }
+.search{
+    display:flex;
+    justify-content: space-evenly;
+    margin:20px;
+}
+.sort{
+    display:flex;
+    justify-content: space-around;
+    margin:20px;
+}
+button{
+    background-color: black;
+    color:white;
+    padding:5px;
+}
+input{
+    padding:5px;
+    width: 80%;
+}

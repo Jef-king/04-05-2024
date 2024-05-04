@@ -101,12 +101,12 @@ let students=[{"id":1,"first_name":"Chadwick","last_name":"Ayre","email":"cayre0
 
 
 const tableBody = document.querySelector('tbody');
-
+function update(students){
 students.forEach(student => {
     const row = document.createElement('tr');
     row.innerHTML = `
         <td>${student.id}</td>
-        <td>${student.first_name} ${student.last_name}</td>
+        <td><img src='${student.img_src}'>${student.first_name} ${student.last_name}</td>
         <td>${student.gender}</td>
         <td>${student.class}</td>
         <td>${student.marks}</td>
@@ -115,3 +115,46 @@ students.forEach(student => {
     `;
     tableBody.appendChild(row);
 });
+}
+update(students);
+let sortatoz=document.querySelector('#atoz');
+sortatoz.addEventListener('click',()=>{
+    tableBody.innerHTML='';
+    let upstudent=students.sort((a, b) => a.first_name.localeCompare(b.first_name));
+    update(upstudent);
+})
+let sortztoa=document.querySelector('#ztoa');
+sortztoa.addEventListener('click',()=>{
+    tableBody.innerHTML='';
+    let upstudent=students.sort((a, b) => b.first_name.localeCompare(a.first_name));
+    update(upstudent);
+})
+let sortbymarks=document.querySelector('#bymarks');
+sortbymarks.addEventListener('click',()=>{
+    tableBody.innerHTML='';
+    let upstudent=students.sort((a, b) => a.marks-b.marks);
+    update(upstudent);
+})
+let sortbypassing=document.querySelector('#bypassing');
+sortbypassing.addEventListener('click',()=>{
+    tableBody.innerHTML='';
+    let upstudent=students.sort((a, b) => a.passing-b.passing);
+    update(upstudent);
+})
+let sortbyclass=document.querySelector('#byclass');
+sortbyclass.addEventListener('click',()=>{
+    tableBody.innerHTML='';
+    let upstudent=students.sort((a, b) => a.class-b.class);
+    update(upstudent);
+})
+let sortbygender=document.querySelector('#bygender');
+sortbygender.addEventListener('click',()=>{
+    tableBody.innerHTML='';
+    let upstudent=students.sort((a, b) => a.gender.localeCompare(b.gender));
+    update(upstudent);
+})
+let search=document.querySelector('#search');
+search.addEventListener('click',()=>{
+    let searchin=document.querySelector('input').value;
+    
+})
